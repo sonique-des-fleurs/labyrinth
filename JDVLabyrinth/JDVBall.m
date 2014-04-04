@@ -43,11 +43,35 @@
 
 - (void)processCollisionWithEdge:(UIView *)edge
 {
+    [self flushWithEdge:edge];
     if (edge.tag == 1) {
         self.xVelocity *= -1;
     }
     if (edge.tag == 2) {
         self.yVelocity *= -1;
+    }
+}
+
+- (void)flushWithEdge:(UIView *)edge
+{
+    if (edge.tag == 1) {
+        double centerX;
+        if (self.xVelocity >= 0) {
+            centerX = edge.frame.origin.x - (self.frame.size.width / 2);
+        } else {
+            centerX = (edge.frame.origin.x + edge.frame.size.width) + (self.frame.size.width / 2);
+        }
+        self.center = CGPointMake(centerX, self.center.y);
+    }
+    
+    if (edge.tag == 2) {
+        double centerY;
+        if (self.yVelocity >= 0) {
+            centerY = (edge.frame.origin.y + edge.frame.size.height) + (self.frame.size.height / 2);
+        } else {
+            centerY = edge.frame.origin.y - (self.frame.size.height / 2);
+        }
+        self.center = CGPointMake(self.center.x, centerY);
     }
 }
 
