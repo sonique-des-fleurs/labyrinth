@@ -45,7 +45,7 @@ static double const kJDVAccelerationScalingFactor = 0.25;
 - (JDVBall *)newBall
 {
     JDVBall *newBall = [[JDVBall alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-    newBall.center = self.view.center;
+    newBall.center = CGPointMake(34, self.view.frame.size.height - 34);
     newBall.backgroundColor = [UIColor redColor];
     newBall.layer.cornerRadius = newBall.frame.size.width / 2;
     return newBall;
