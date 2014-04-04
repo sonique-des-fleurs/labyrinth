@@ -10,4 +10,6 @@
 
 @interface JDVViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIView *hole;
+
 @end

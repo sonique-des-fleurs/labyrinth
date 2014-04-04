@@ -28,6 +28,7 @@ static double const kJDVAccelerationScalingFactor = 0.25;
     
     self.ball = [self newBall];
     [self.view addSubview:self.ball];
+    self.hole.layer.cornerRadius = self.hole.frame.size.width / 2;
     [self startAccelerometer];
 }
 
@@ -44,7 +45,7 @@ static double const kJDVAccelerationScalingFactor = 0.25;
 
 - (JDVBall *)newBall
 {
-    JDVBall *newBall = [[JDVBall alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    JDVBall *newBall = [[JDVBall alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
     newBall.center = CGPointMake(34, self.view.frame.size.height - 34);
     newBall.backgroundColor = [UIColor redColor];
     newBall.layer.cornerRadius = newBall.frame.size.width / 2;
@@ -54,7 +55,7 @@ static double const kJDVAccelerationScalingFactor = 0.25;
 - (void)startAccelerometer
 {
     self.motionManager = [[CMMotionManager alloc] init];
-    [self.motionManager setAccelerometerUpdateInterval:0.025];
+    [self.motionManager setAccelerometerUpdateInterval:0.04];
     NSOperationQueue *operationQueue = [NSOperationQueue mainQueue];
     CMAccelerometerHandler handler = ^(CMAccelerometerData *accelerometerData, NSError *error){
         NSLog(@"handled accelerometer data: %f, %f", accelerometerData.acceleration.x, accelerometerData.acceleration.y);

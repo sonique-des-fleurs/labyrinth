@@ -8,6 +8,8 @@
 
 #import "JDVBall.h"
 
+static double const kJDVFriction = 0.8;
+
 @interface JDVBall ()
 
 @property (assign, nonatomic) double xVelocity;
