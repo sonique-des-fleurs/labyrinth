@@ -10,4 +10,7 @@
 
 @interface JDVBall : UIView
 
+- (void)updateVelocityWithAccelerationX:(double)xAcceleration
+                          accelerationY:(double)yAcceleration;
+
 @end

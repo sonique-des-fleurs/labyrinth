@@ -55,8 +55,9 @@
     [self.motionManager setAccelerometerUpdateInterval:0.025];
     NSOperationQueue *operationQueue = [NSOperationQueue mainQueue];
     CMAccelerometerHandler handler = ^(CMAccelerometerData *accelerometerData, NSError *error){
-        NSLog(@"received accelerometer update: %f, %f", accelerometerData.acceleration.x, accelerometerData.acceleration.y);
-        
+        NSLog(@"handled accelerometer data: %f, %f", accelerometerData.acceleration.x, accelerometerData.acceleration.y);
+        [self.ball updateVelocityWithAccelerationX:accelerometerData.acceleration.x
+                                     accelerationY:accelerometerData.acceleration.y];
     };
     [self.motionManager startAccelerometerUpdatesToQueue:operationQueue withHandler:handler];
 }
