@@ -21,6 +21,7 @@
 		CB78D50E18EE478200AAA64A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB78D4F018EE478200AAA64A /* UIKit.framework */; };
 		CB78D51618EE478200AAA64A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB78D51418EE478200AAA64A /* InfoPlist.strings */; };
 		CB78D51818EE478200AAA64A /* JDVLabyrinthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB78D51718EE478200AAA64A /* JDVLabyrinthTests.m */; };
+		CB78D52218EE4BC400AAA64A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB78D52118EE4BC400AAA64A /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		CB78D51318EE478200AAA64A /* JDVLabyrinthTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JDVLabyrinthTests-Info.plist"; sourceTree = "<group>"; };
 		CB78D51518EE478200AAA64A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CB78D51718EE478200AAA64A /* JDVLabyrinthTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JDVLabyrinthTests.m; sourceTree = "<group>"; };
+		CB78D52118EE4BC400AAA64A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB78D52218EE4BC400AAA64A /* CoreMotion.framework in Frameworks */,
 				CB78D4EF18EE478200AAA64A /* CoreGraphics.framework in Frameworks */,
 				CB78D4F118EE478200AAA64A /* UIKit.framework in Frameworks */,
 				CB78D4ED18EE478200AAA64A /* Foundation.framework in Frameworks */,
@@ -101,6 +104,7 @@
 		CB78D4EB18EE478200AAA64A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CB78D52118EE4BC400AAA64A /* CoreMotion.framework */,
 				CB78D4EC18EE478200AAA64A /* Foundation.framework */,
 				CB78D4EE18EE478200AAA64A /* CoreGraphics.framework */,
 				CB78D4F018EE478200AAA64A /* UIKit.framework */,

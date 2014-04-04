@@ -7,10 +7,12 @@
 //
 
 #import "JDVViewController.h"
+#import <CoreMotion/CoreMotion.h>
 
 @interface JDVViewController ()
 
 @property (strong, nonatomic) UIView *ball;
+@property (strong, nonatomic) CMMotionManager *motionManager;
 
 @end
 
@@ -21,7 +23,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    [self createBall];
+    self.ball = [self newBall];
+    [self.view addSubview:self.ball];
+    [self startAccelerometer];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,13 +39,24 @@
     return TRUE;
 }
 
-- (void)createBall
+- (UIView *)newBall
 {
     UIView *newBall = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
     newBall.center = self.view.center;
     newBall.backgroundColor = [UIColor redColor];
     newBall.layer.cornerRadius = newBall.frame.size.width / 2;
-    [self.view addSubview:newBall];
+    return newBall;
+}
+
+- (void)startAccelerometer
+{
+    self.motionManager = [[CMMotionManager alloc] init];
+    [self.motionManager setAccelerometerUpdateInterval:0.025];
+    NSOperationQueue *operationQueue = [NSOperationQueue mainQueue];
+    CMAccelerometerHandler handler = ^(CMAccelerometerData *accelerometerData, NSError *error){
+        NSLog(@"received accelerometer update: %f, %f", accelerometerData.acceleration.x, accelerometerData.acceleration.y);
+    };
+    [self.motionManager startAccelerometerUpdatesToQueue:operationQueue withHandler:handler];
 }
 
 @end
