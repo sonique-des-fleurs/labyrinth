@@ -12,5 +12,6 @@
 
 - (void)updateVelocityWithAccelerationX:(double)xAcceleration
                           accelerationY:(double)yAcceleration;
+- (void)updatePosition;
 
 @end

@@ -34,6 +34,13 @@
     self.yVelocity += yAcceleration;
 }
 
+- (void)updatePosition
+{
+    double centerX = self.center.x + self.xVelocity;
+    double centerY = self.center.y - self.yVelocity;
+    self.center = CGPointMake(centerX, centerY);
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

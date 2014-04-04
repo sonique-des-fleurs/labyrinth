@@ -10,6 +10,8 @@
 #import <CoreMotion/CoreMotion.h>
 #import "JDVBall.h"
 
+static double const kJDVAccelerationScalingFactor = 0.25;
+
 @interface JDVViewController ()
 
 @property (strong, nonatomic) JDVBall *ball;
@@ -56,8 +58,9 @@
     NSOperationQueue *operationQueue = [NSOperationQueue mainQueue];
     CMAccelerometerHandler handler = ^(CMAccelerometerData *accelerometerData, NSError *error){
         NSLog(@"handled accelerometer data: %f, %f", accelerometerData.acceleration.x, accelerometerData.acceleration.y);
-        [self.ball updateVelocityWithAccelerationX:accelerometerData.acceleration.x
-                                     accelerationY:accelerometerData.acceleration.y];
+        [self.ball updateVelocityWithAccelerationX:accelerometerData.acceleration.x * kJDVAccelerationScalingFactor
+                                     accelerationY:accelerometerData.acceleration.y * kJDVAccelerationScalingFactor];
+        [self.ball updatePosition];
     };
     [self.motionManager startAccelerometerUpdatesToQueue:operationQueue withHandler:handler];
 }
