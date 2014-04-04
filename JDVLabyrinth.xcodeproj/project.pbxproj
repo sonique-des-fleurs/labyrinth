@@ -22,6 +22,8 @@
 		CB78D51618EE478200AAA64A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB78D51418EE478200AAA64A /* InfoPlist.strings */; };
 		CB78D51818EE478200AAA64A /* JDVLabyrinthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB78D51718EE478200AAA64A /* JDVLabyrinthTests.m */; };
 		CB78D52218EE4BC400AAA64A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB78D52118EE4BC400AAA64A /* CoreMotion.framework */; };
+		CB78D52518EE4DAF00AAA64A /* JDVBall.m in Sources */ = {isa = PBXBuildFile; fileRef = CB78D52418EE4DAF00AAA64A /* JDVBall.m */; };
+		CB78D52618EE4DAF00AAA64A /* JDVBall.m in Sources */ = {isa = PBXBuildFile; fileRef = CB78D52418EE4DAF00AAA64A /* JDVBall.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		CB78D51518EE478200AAA64A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CB78D51718EE478200AAA64A /* JDVLabyrinthTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JDVLabyrinthTests.m; sourceTree = "<group>"; };
 		CB78D52118EE4BC400AAA64A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		CB78D52318EE4DAF00AAA64A /* JDVBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDVBall.h; sourceTree = "<group>"; };
+		CB78D52418EE4DAF00AAA64A /* JDVBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDVBall.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,8 @@
 				CB78D4FE18EE478200AAA64A /* Main.storyboard */,
 				CB78D50118EE478200AAA64A /* JDVViewController.h */,
 				CB78D50218EE478200AAA64A /* JDVViewController.m */,
+				CB78D52318EE4DAF00AAA64A /* JDVBall.h */,
+				CB78D52418EE4DAF00AAA64A /* JDVBall.m */,
 				CB78D50418EE478200AAA64A /* Images.xcassets */,
 				CB78D4F318EE478200AAA64A /* Supporting Files */,
 			);
@@ -257,6 +263,7 @@
 				CB78D50318EE478200AAA64A /* JDVViewController.m in Sources */,
 				CB78D4F918EE478200AAA64A /* main.m in Sources */,
 				CB78D4FD18EE478200AAA64A /* JDVAppDelegate.m in Sources */,
+				CB78D52518EE4DAF00AAA64A /* JDVBall.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB78D51818EE478200AAA64A /* JDVLabyrinthTests.m in Sources */,
+				CB78D52618EE4DAF00AAA64A /* JDVBall.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

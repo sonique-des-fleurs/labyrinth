@@ -8,10 +8,11 @@
 
 #import "JDVViewController.h"
 #import <CoreMotion/CoreMotion.h>
+#import "JDVBall.h"
 
 @interface JDVViewController ()
 
-@property (strong, nonatomic) UIView *ball;
+@property (strong, nonatomic) JDVBall *ball;
 @property (strong, nonatomic) CMMotionManager *motionManager;
 
 @end
@@ -39,9 +40,9 @@
     return TRUE;
 }
 
-- (UIView *)newBall
+- (JDVBall *)newBall
 {
-    UIView *newBall = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    JDVBall *newBall = [[JDVBall alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
     newBall.center = self.view.center;
     newBall.backgroundColor = [UIColor redColor];
     newBall.layer.cornerRadius = newBall.frame.size.width / 2;
@@ -55,6 +56,7 @@
     NSOperationQueue *operationQueue = [NSOperationQueue mainQueue];
     CMAccelerometerHandler handler = ^(CMAccelerometerData *accelerometerData, NSError *error){
         NSLog(@"received accelerometer update: %f, %f", accelerometerData.acceleration.x, accelerometerData.acceleration.y);
+        
     };
     [self.motionManager startAccelerometerUpdatesToQueue:operationQueue withHandler:handler];
 }
