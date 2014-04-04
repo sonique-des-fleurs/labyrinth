@@ -13,5 +13,6 @@
 - (void)updateVelocityWithAccelerationX:(double)xAcceleration
                           accelerationY:(double)yAcceleration;
 - (void)updatePosition;
+- (void)processCollisionWithEdge:(UIView *)edge;
 
 @end

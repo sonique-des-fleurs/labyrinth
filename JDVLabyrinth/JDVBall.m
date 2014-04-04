@@ -41,6 +41,16 @@
     self.center = CGPointMake(centerX, centerY);
 }
 
+- (void)processCollisionWithEdge:(UIView *)edge
+{
+    if (edge.tag == 1) {
+        self.xVelocity *= -1;
+    }
+    if (edge.tag == 2) {
+        self.yVelocity *= -1;
+    }
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

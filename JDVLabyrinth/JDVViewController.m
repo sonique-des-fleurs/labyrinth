@@ -61,8 +61,21 @@ static double const kJDVAccelerationScalingFactor = 0.25;
         [self.ball updateVelocityWithAccelerationX:accelerometerData.acceleration.x * kJDVAccelerationScalingFactor
                                      accelerationY:accelerometerData.acceleration.y * kJDVAccelerationScalingFactor];
         [self.ball updatePosition];
+        [self checkForCollision];
     };
     [self.motionManager startAccelerometerUpdatesToQueue:operationQueue withHandler:handler];
+}
+
+- (void)checkForCollision
+{
+    for (UIView *edge in self.view.subviews) {
+        if ([edge isKindOfClass:[JDVBall class]]) {
+            continue;
+        }
+        if (CGRectIntersectsRect(self.ball.frame, edge.frame)) {
+            [self.ball processCollisionWithEdge:edge];
+        }
+    }
 }
 
 @end
