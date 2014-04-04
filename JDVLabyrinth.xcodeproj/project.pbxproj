@@ -1,0 +1,472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CB78D4ED18EE478200AAA64A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB78D4EC18EE478200AAA64A /* Foundation.framework */; };
+		CB78D4EF18EE478200AAA64A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB78D4EE18EE478200AAA64A /* CoreGraphics.framework */; };
+		CB78D4F118EE478200AAA64A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB78D4F018EE478200AAA64A /* UIKit.framework */; };
+		CB78D4F718EE478200AAA64A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB78D4F518EE478200AAA64A /* InfoPlist.strings */; };
+		CB78D4F918EE478200AAA64A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB78D4F818EE478200AAA64A /* main.m */; };
+		CB78D4FD18EE478200AAA64A /* JDVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB78D4FC18EE478200AAA64A /* JDVAppDelegate.m */; };
+		CB78D50018EE478200AAA64A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB78D4FE18EE478200AAA64A /* Main.storyboard */; };
+		CB78D50318EE478200AAA64A /* JDVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB78D50218EE478200AAA64A /* JDVViewController.m */; };
+		CB78D50518EE478200AAA64A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB78D50418EE478200AAA64A /* Images.xcassets */; };
+		CB78D50C18EE478200AAA64A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB78D50B18EE478200AAA64A /* XCTest.framework */; };
+		CB78D50D18EE478200AAA64A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB78D4EC18EE478200AAA64A /* Foundation.framework */; };
+		CB78D50E18EE478200AAA64A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB78D4F018EE478200AAA64A /* UIKit.framework */; };
+		CB78D51618EE478200AAA64A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB78D51418EE478200AAA64A /* InfoPlist.strings */; };
+		CB78D51818EE478200AAA64A /* JDVLabyrinthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB78D51718EE478200AAA64A /* JDVLabyrinthTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CB78D50F18EE478200AAA64A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB78D4E118EE478200AAA64A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB78D4E818EE478200AAA64A;
+			remoteInfo = JDVLabyrinth;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CB78D4E918EE478200AAA64A /* JDVLabyrinth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JDVLabyrinth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB78D4EC18EE478200AAA64A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CB78D4EE18EE478200AAA64A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CB78D4F018EE478200AAA64A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CB78D4F418EE478200AAA64A /* JDVLabyrinth-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JDVLabyrinth-Info.plist"; sourceTree = "<group>"; };
+		CB78D4F618EE478200AAA64A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CB78D4F818EE478200AAA64A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CB78D4FA18EE478200AAA64A /* JDVLabyrinth-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JDVLabyrinth-Prefix.pch"; sourceTree = "<group>"; };
+		CB78D4FB18EE478200AAA64A /* JDVAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JDVAppDelegate.h; sourceTree = "<group>"; };
+		CB78D4FC18EE478200AAA64A /* JDVAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JDVAppDelegate.m; sourceTree = "<group>"; };
+		CB78D4FF18EE478200AAA64A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CB78D50118EE478200AAA64A /* JDVViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JDVViewController.h; sourceTree = "<group>"; };
+		CB78D50218EE478200AAA64A /* JDVViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JDVViewController.m; sourceTree = "<group>"; };
+		CB78D50418EE478200AAA64A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CB78D50A18EE478200AAA64A /* JDVLabyrinthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JDVLabyrinthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB78D50B18EE478200AAA64A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		CB78D51318EE478200AAA64A /* JDVLabyrinthTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JDVLabyrinthTests-Info.plist"; sourceTree = "<group>"; };
+		CB78D51518EE478200AAA64A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CB78D51718EE478200AAA64A /* JDVLabyrinthTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JDVLabyrinthTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CB78D4E618EE478200AAA64A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB78D4EF18EE478200AAA64A /* CoreGraphics.framework in Frameworks */,
+				CB78D4F118EE478200AAA64A /* UIKit.framework in Frameworks */,
+				CB78D4ED18EE478200AAA64A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB78D50718EE478200AAA64A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB78D50C18EE478200AAA64A /* XCTest.framework in Frameworks */,
+				CB78D50E18EE478200AAA64A /* UIKit.framework in Frameworks */,
+				CB78D50D18EE478200AAA64A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CB78D4E018EE478200AAA64A = {
+			isa = PBXGroup;
+			children = (
+				CB78D4F218EE478200AAA64A /* JDVLabyrinth */,
+				CB78D51118EE478200AAA64A /* JDVLabyrinthTests */,
+				CB78D4EB18EE478200AAA64A /* Frameworks */,
+				CB78D4EA18EE478200AAA64A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CB78D4EA18EE478200AAA64A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CB78D4E918EE478200AAA64A /* JDVLabyrinth.app */,
+				CB78D50A18EE478200AAA64A /* JDVLabyrinthTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CB78D4EB18EE478200AAA64A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CB78D4EC18EE478200AAA64A /* Foundation.framework */,
+				CB78D4EE18EE478200AAA64A /* CoreGraphics.framework */,
+				CB78D4F018EE478200AAA64A /* UIKit.framework */,
+				CB78D50B18EE478200AAA64A /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB78D4F218EE478200AAA64A /* JDVLabyrinth */ = {
+			isa = PBXGroup;
+			children = (
+				CB78D4FB18EE478200AAA64A /* JDVAppDelegate.h */,
+				CB78D4FC18EE478200AAA64A /* JDVAppDelegate.m */,
+				CB78D4FE18EE478200AAA64A /* Main.storyboard */,
+				CB78D50118EE478200AAA64A /* JDVViewController.h */,
+				CB78D50218EE478200AAA64A /* JDVViewController.m */,
+				CB78D50418EE478200AAA64A /* Images.xcassets */,
+				CB78D4F318EE478200AAA64A /* Supporting Files */,
+			);
+			path = JDVLabyrinth;
+			sourceTree = "<group>";
+		};
+		CB78D4F318EE478200AAA64A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CB78D4F418EE478200AAA64A /* JDVLabyrinth-Info.plist */,
+				CB78D4F518EE478200AAA64A /* InfoPlist.strings */,
+				CB78D4F818EE478200AAA64A /* main.m */,
+				CB78D4FA18EE478200AAA64A /* JDVLabyrinth-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CB78D51118EE478200AAA64A /* JDVLabyrinthTests */ = {
+			isa = PBXGroup;
+			children = (
+				CB78D51718EE478200AAA64A /* JDVLabyrinthTests.m */,
+				CB78D51218EE478200AAA64A /* Supporting Files */,
+			);
+			path = JDVLabyrinthTests;
+			sourceTree = "<group>";
+		};
+		CB78D51218EE478200AAA64A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CB78D51318EE478200AAA64A /* JDVLabyrinthTests-Info.plist */,
+				CB78D51418EE478200AAA64A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CB78D4E818EE478200AAA64A /* JDVLabyrinth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB78D51B18EE478200AAA64A /* Build configuration list for PBXNativeTarget "JDVLabyrinth" */;
+			buildPhases = (
+				CB78D4E518EE478200AAA64A /* Sources */,
+				CB78D4E618EE478200AAA64A /* Frameworks */,
+				CB78D4E718EE478200AAA64A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JDVLabyrinth;
+			productName = JDVLabyrinth;
+			productReference = CB78D4E918EE478200AAA64A /* JDVLabyrinth.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CB78D50918EE478200AAA64A /* JDVLabyrinthTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB78D51E18EE478200AAA64A /* Build configuration list for PBXNativeTarget "JDVLabyrinthTests" */;
+			buildPhases = (
+				CB78D50618EE478200AAA64A /* Sources */,
+				CB78D50718EE478200AAA64A /* Frameworks */,
+				CB78D50818EE478200AAA64A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CB78D51018EE478200AAA64A /* PBXTargetDependency */,
+			);
+			name = JDVLabyrinthTests;
+			productName = JDVLabyrinthTests;
+			productReference = CB78D50A18EE478200AAA64A /* JDVLabyrinthTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CB78D4E118EE478200AAA64A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = JDV;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = JDV;
+				TargetAttributes = {
+					CB78D50918EE478200AAA64A = {
+						TestTargetID = CB78D4E818EE478200AAA64A;
+					};
+				};
+			};
+			buildConfigurationList = CB78D4E418EE478200AAA64A /* Build configuration list for PBXProject "JDVLabyrinth" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CB78D4E018EE478200AAA64A;
+			productRefGroup = CB78D4EA18EE478200AAA64A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CB78D4E818EE478200AAA64A /* JDVLabyrinth */,
+				CB78D50918EE478200AAA64A /* JDVLabyrinthTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CB78D4E718EE478200AAA64A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB78D50518EE478200AAA64A /* Images.xcassets in Resources */,
+				CB78D4F718EE478200AAA64A /* InfoPlist.strings in Resources */,
+				CB78D50018EE478200AAA64A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB78D50818EE478200AAA64A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB78D51618EE478200AAA64A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CB78D4E518EE478200AAA64A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB78D50318EE478200AAA64A /* JDVViewController.m in Sources */,
+				CB78D4F918EE478200AAA64A /* main.m in Sources */,
+				CB78D4FD18EE478200AAA64A /* JDVAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB78D50618EE478200AAA64A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB78D51818EE478200AAA64A /* JDVLabyrinthTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CB78D51018EE478200AAA64A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB78D4E818EE478200AAA64A /* JDVLabyrinth */;
+			targetProxy = CB78D50F18EE478200AAA64A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CB78D4F518EE478200AAA64A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB78D4F618EE478200AAA64A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CB78D4FE18EE478200AAA64A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB78D4FF18EE478200AAA64A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CB78D51418EE478200AAA64A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB78D51518EE478200AAA64A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CB78D51918EE478200AAA64A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CB78D51A18EE478200AAA64A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CB78D51C18EE478200AAA64A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JDVLabyrinth/JDVLabyrinth-Prefix.pch";
+				INFOPLIST_FILE = "JDVLabyrinth/JDVLabyrinth-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CB78D51D18EE478200AAA64A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JDVLabyrinth/JDVLabyrinth-Prefix.pch";
+				INFOPLIST_FILE = "JDVLabyrinth/JDVLabyrinth-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		CB78D51F18EE478200AAA64A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JDVLabyrinth.app/JDVLabyrinth";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JDVLabyrinth/JDVLabyrinth-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "JDVLabyrinthTests/JDVLabyrinthTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		CB78D52018EE478200AAA64A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JDVLabyrinth.app/JDVLabyrinth";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JDVLabyrinth/JDVLabyrinth-Prefix.pch";
+				INFOPLIST_FILE = "JDVLabyrinthTests/JDVLabyrinthTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CB78D4E418EE478200AAA64A /* Build configuration list for PBXProject "JDVLabyrinth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB78D51918EE478200AAA64A /* Debug */,
+				CB78D51A18EE478200AAA64A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB78D51B18EE478200AAA64A /* Build configuration list for PBXNativeTarget "JDVLabyrinth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB78D51C18EE478200AAA64A /* Debug */,
+				CB78D51D18EE478200AAA64A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CB78D51E18EE478200AAA64A /* Build configuration list for PBXNativeTarget "JDVLabyrinthTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB78D51F18EE478200AAA64A /* Debug */,
+				CB78D52018EE478200AAA64A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CB78D4E118EE478200AAA64A /* Project object */;
+}
