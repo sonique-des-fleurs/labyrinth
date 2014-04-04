@@ -62,15 +62,28 @@ static double const kJDVAccelerationScalingFactor = 0.25;
         [self.ball updateVelocityWithAccelerationX:accelerometerData.acceleration.x * kJDVAccelerationScalingFactor
                                      accelerationY:accelerometerData.acceleration.y * kJDVAccelerationScalingFactor];
         [self.ball updatePosition];
+        [self checkForWin];
         [self checkForCollision];
     };
     [self.motionManager startAccelerometerUpdatesToQueue:operationQueue withHandler:handler];
 }
 
+- (void)checkForWin
+{
+    if (CGRectContainsRect(self.hole.frame, self.ball.frame)) {
+        [self.ball removeFromSuperview];
+        [[[UIAlertView alloc] initWithTitle:@"TA DA"
+                                    message:@"You Win!"
+                                   delegate:nil
+                          cancelButtonTitle:nil
+                          otherButtonTitles:nil] show];
+    }
+}
+
 - (void)checkForCollision
 {
     for (UIView *edge in self.view.subviews) {
-        if ([edge isKindOfClass:[JDVBall class]]) {
+        if ([edge isKindOfClass:[JDVBall class]] || edge.tag == 3) {
             continue;
         }
         if (CGRectIntersectsRect(self.ball.frame, edge.frame)) {
