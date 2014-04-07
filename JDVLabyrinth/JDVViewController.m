@@ -14,9 +14,8 @@ static double const kJDVAccelerationScalingFactor = 0.25;
 
 @interface JDVViewController ()
 
-@property (strong, nonatomic) JDVBall *ball;
-@property (strong, nonatomic) CMMotionManager *motionManager;
 @property (strong, nonatomic) NSArray *walls;
+@property (strong, nonatomic) CMMotionManager *motionManager;
 
 @end
 
@@ -28,10 +27,6 @@ static double const kJDVAccelerationScalingFactor = 0.25;
 	// Do any additional setup after loading the view, typically from a nib.
     
     [self addWalls];
-    
-    self.ball = [self newBall];
-    [self.view addSubview:self.ball];
-    self.hole.layer.cornerRadius = self.hole.frame.size.width / 2;
     [self startAccelerometer];
 }
 
@@ -49,15 +44,6 @@ static double const kJDVAccelerationScalingFactor = 0.25;
         }
     }
     self.walls = [NSArray arrayWithArray:mutableWalls];
-}
-
-- (JDVBall *)newBall
-{
-    JDVBall *newBall = [[JDVBall alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
-    newBall.center = CGPointMake(34, self.view.frame.size.height - 34);
-    newBall.backgroundColor = [UIColor redColor];
-    newBall.layer.cornerRadius = newBall.frame.size.width / 2;
-    return newBall;
 }
 
 - (void)startAccelerometer
@@ -78,14 +64,14 @@ static double const kJDVAccelerationScalingFactor = 0.25;
 
 - (void)checkForWin
 {
-    if (CGRectContainsRect(self.hole.frame, self.ball.frame)) {
-        [self.ball removeFromSuperview];
-        [[[UIAlertView alloc] initWithTitle:@"TA DA"
-                                    message:@"You Win!"
-                                   delegate:nil
-                          cancelButtonTitle:nil
-                          otherButtonTitles:nil] show];
-    }
+//    if (CGRectContainsRect(self.hole.frame, self.ball.frame)) {
+//        [self.ball removeFromSuperview];
+//        [[[UIAlertView alloc] initWithTitle:@"TA DA"
+//                                    message:@"You Win!"
+//                                   delegate:nil
+//                          cancelButtonTitle:nil
+//                          otherButtonTitles:nil] show];
+//    }
 }
 
 - (void)checkForCollision

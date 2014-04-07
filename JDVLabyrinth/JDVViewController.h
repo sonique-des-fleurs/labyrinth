@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JDVBall.h"
 
 @interface JDVViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UIView *hole;
+@property (strong, nonatomic) IBOutlet JDVBall *ball;
 
 @end

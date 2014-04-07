@@ -8,7 +8,7 @@
 
 #import "JDVBall.h"
 
-static double const kJDVFriction = 0.8;
+//static double const kJDVFriction = 0.8;
 
 @interface JDVBall ()
 
@@ -19,12 +19,29 @@ static double const kJDVFriction = 0.8;
 
 @implementation JDVBall
 
+//- (id)initWithCenter:(CGPoint)center
+//            diameter:(double)diameter
+//{
+//    self = [self initWithFrame:CGRectMake(center.x - (diameter / 2),
+//                                          center.y - (diameter / 2),
+//                                          diameter,
+//                                          diameter)];
+//    if (self) {
+//        _xVelocity = 0.0;
+//        _yVelocity = 0.0;
+////        self.backgroundColor = [UIColor redColor];
+////        self.layer.cornerRadius = self.frame.size.width / 2;
+//    }
+//    return self;
+//}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _xVelocity = 0.0;
-        _yVelocity = 0.0;
+        _xVelocity = 0;
+        _yVelocity = 0;
+        self.backgroundColor = [UIColor yellowColor];
     }
     return self;
 }
@@ -77,13 +94,12 @@ static double const kJDVFriction = 0.8;
     }
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
+    self.backgroundColor = [UIColor clearColor];
+    UIBezierPath *ballShape = [UIBezierPath bezierPathWithOvalInRect:self.bounds];
+    [[UIColor redColor] setFill];
+    [ballShape fill];
 }
-*/
 
 @end
