@@ -10,8 +10,9 @@
 
 @interface JDVBall : UIView
 
-- (void)updateVelocityWithAccelerationX:(double)xAcceleration
-                          accelerationY:(double)yAcceleration;
+@property (assign, nonatomic) double xVelocity;
+@property (assign, nonatomic) double yVelocity;
+
 - (void)updatePosition;
 - (void)processCollisionWithEdge:(UIView *)edge;
 

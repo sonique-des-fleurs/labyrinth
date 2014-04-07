@@ -8,32 +8,13 @@
 
 #import "JDVBall.h"
 
-//static double const kJDVFriction = 0.8;
+static double const kJDVMaxVelocity = 20;
 
 @interface JDVBall ()
-
-@property (assign, nonatomic) double xVelocity;
-@property (assign, nonatomic) double yVelocity;
 
 @end
 
 @implementation JDVBall
-
-//- (id)initWithCenter:(CGPoint)center
-//            diameter:(double)diameter
-//{
-//    self = [self initWithFrame:CGRectMake(center.x - (diameter / 2),
-//                                          center.y - (diameter / 2),
-//                                          diameter,
-//                                          diameter)];
-//    if (self) {
-//        _xVelocity = 0.0;
-//        _yVelocity = 0.0;
-////        self.backgroundColor = [UIColor redColor];
-////        self.layer.cornerRadius = self.frame.size.width / 2;
-//    }
-//    return self;
-//}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -46,17 +27,22 @@
     return self;
 }
 
-- (void)updateVelocityWithAccelerationX:(double)xAcceleration
-                          accelerationY:(double)yAcceleration
+- (void)setXVelocity:(double)velocity
 {
-    self.xVelocity += xAcceleration;
-    self.yVelocity += yAcceleration;
+    _xVelocity = fmax(-1 * kJDVMaxVelocity, velocity);
+    _xVelocity = fmin(_xVelocity, kJDVMaxVelocity);
+}
+
+- (void)setYVelocity:(double)velocity
+{
+    _yVelocity = fmax(-1 * kJDVMaxVelocity, velocity);
+    _yVelocity = fmin(_yVelocity, kJDVMaxVelocity);
 }
 
 - (void)updatePosition
 {
     double centerX = self.center.x + self.xVelocity;
-    double centerY = self.center.y - self.yVelocity;
+    double centerY = self.center.y + self.yVelocity;
     self.center = CGPointMake(centerX, centerY);
 }
 

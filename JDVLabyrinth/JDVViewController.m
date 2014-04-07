@@ -10,8 +10,6 @@
 #import <CoreMotion/CoreMotion.h>
 #import "JDVBall.h"
 
-static double const kJDVAccelerationScalingFactor = 0.25;
-
 @interface JDVViewController ()
 
 @property (strong, nonatomic) NSArray *walls;
@@ -27,7 +25,7 @@ static double const kJDVAccelerationScalingFactor = 0.25;
 	// Do any additional setup after loading the view, typically from a nib.
     
     [self addWalls];
-    [self startAccelerometer];
+    [self addMotionManager];
 }
 
 - (BOOL)prefersStatusBarHidden
@@ -46,15 +44,17 @@ static double const kJDVAccelerationScalingFactor = 0.25;
     self.walls = [NSArray arrayWithArray:mutableWalls];
 }
 
-- (void)startAccelerometer
+- (void)addMotionManager
 {
     self.motionManager = [[CMMotionManager alloc] init];
     [self.motionManager setAccelerometerUpdateInterval:0.04];
     NSOperationQueue *operationQueue = [NSOperationQueue mainQueue];
     CMAccelerometerHandler handler = ^(CMAccelerometerData *accelerometerData, NSError *error){
-        NSLog(@"handled accelerometer data: %f, %f", accelerometerData.acceleration.x, accelerometerData.acceleration.y);
-        [self.ball updateVelocityWithAccelerationX:accelerometerData.acceleration.x * kJDVAccelerationScalingFactor
-                                     accelerationY:accelerometerData.acceleration.y * kJDVAccelerationScalingFactor];
+        double xAccel = accelerometerData.acceleration.x;
+        double yAccel = accelerometerData.acceleration.y;
+        NSLog(@"handled accelerometer data: %f, %f", xAccel, yAccel);
+        self.ball.xVelocity += xAccel;
+        self.ball.yVelocity += (-1 * yAccel);
         [self.ball updatePosition];
         [self checkForWin];
         [self checkForCollision];
