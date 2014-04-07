@@ -15,6 +15,4 @@
 
 - (double)greatestDirectionalVelocity;
 
-- (void)processCollisionWithEdge:(UIView *)edge;
-
 @end

@@ -15,6 +15,7 @@ static const double kJDVFriction = 0.97;
 @interface JDVViewController ()
 
 @property (strong, nonatomic) NSArray *walls;
+@property (strong, nonatomic) JDVBall *ball;
 @property (strong, nonatomic) CMMotionManager *motionManager;
 
 @end
@@ -25,6 +26,8 @@ static const double kJDVFriction = 0.97;
 {
     [super viewDidLoad];
     [self addWalls];
+    [self addBall];
+    self.hole.layer.cornerRadius = self.hole.frame.size.width / 2;
     [self addMotionManager];
 }
 
@@ -44,6 +47,12 @@ static const double kJDVFriction = 0.97;
     self.walls = [NSArray arrayWithArray:mutableWalls];
 }
 
+- (void)addBall
+{
+    self.ball = [[JDVBall alloc] initWithFrame:CGRectMake(20, 510, 34, 34)];
+    [self.view addSubview:self.ball];
+}
+
 - (void)addMotionManager
 {
     self.motionManager = [[CMMotionManager alloc] init];
@@ -55,7 +64,6 @@ static const double kJDVFriction = 0.97;
         self.ball.xVelocity += xAccel;
         self.ball.yVelocity += (-1 * yAccel);
         [self moveBall];
-        [self checkForWin];
     };
     [self.motionManager startAccelerometerUpdatesToQueue:operationQueue withHandler:handler];
 }
@@ -70,6 +78,16 @@ static const double kJDVFriction = 0.97;
         [self checkForCollisionInDirectionOfGreaterVelocity];
         [self stepBallInDirectionOfLesserVelocityByStep:step];
         [self checkForCollisionInDirectionOfLesserVelocity];
+        if ([self gameIsOver]) {
+            [self.motionManager stopAccelerometerUpdates];
+            [self.ball removeFromSuperview];
+            [[[UIAlertView alloc] initWithTitle:@"TA DA"
+                                        message:@"You Win!"
+                                       delegate:nil
+                              cancelButtonTitle:nil
+                              otherButtonTitles:nil] show];
+            break;
+        }
         movementSteps -= step;
     }
 }
@@ -166,16 +184,12 @@ static const double kJDVFriction = 0.97;
     }
 }
 
-- (void)checkForWin
+- (BOOL)gameIsOver
 {
-//    if (CGRectContainsRect(self.hole.frame, self.ball.frame)) {
-//        [self.ball removeFromSuperview];
-//        [[[UIAlertView alloc] initWithTitle:@"TA DA"
-//                                    message:@"You Win!"
-//                                   delegate:nil
-//                          cancelButtonTitle:nil
-//                          otherButtonTitles:nil] show];
-//    }
+    if (CGRectContainsRect(self.hole.frame, self.ball.frame)) {
+        return TRUE;
+    }
+    return FALSE;
 }
 
 @end
