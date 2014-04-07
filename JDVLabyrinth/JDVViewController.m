@@ -16,6 +16,7 @@ static double const kJDVAccelerationScalingFactor = 0.25;
 
 @property (strong, nonatomic) JDVBall *ball;
 @property (strong, nonatomic) CMMotionManager *motionManager;
+@property (strong, nonatomic) NSArray *walls;
 
 @end
 
@@ -26,21 +27,28 @@ static double const kJDVAccelerationScalingFactor = 0.25;
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    [self addWalls];
+    
     self.ball = [self newBall];
     [self.view addSubview:self.ball];
     self.hole.layer.cornerRadius = self.hole.frame.size.width / 2;
     [self startAccelerometer];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (BOOL)prefersStatusBarHidden
 {
     return TRUE;
+}
+
+- (void)addWalls
+{
+    NSMutableArray *mutableWalls = [NSMutableArray array];
+    for (UIView *view in self.view.subviews) {
+        if (view.tag == 1) {
+            [mutableWalls addObject:view];
+        }
+    }
+    self.walls = [NSArray arrayWithArray:mutableWalls];
 }
 
 - (JDVBall *)newBall
