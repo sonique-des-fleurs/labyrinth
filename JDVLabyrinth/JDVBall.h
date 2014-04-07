@@ -14,8 +14,6 @@
 @property (assign, nonatomic) double yVelocity;
 
 - (double)greatestDirectionalVelocity;
-- (void)stepInDirectionOfGreaterVelocityByFractionalStep:(double)fractionOfStep;
-- (void)stepInDirectionOfLesserVelocityByFractionalStep:(double)fractionOfStep;
 
 - (void)processCollisionWithEdge:(UIView *)edge;
 

@@ -24,8 +24,6 @@ static const double kJDVFriction = 0.97;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    
     [self addWalls];
     [self addMotionManager];
 }
@@ -54,12 +52,10 @@ static const double kJDVFriction = 0.97;
     CMAccelerometerHandler handler = ^(CMAccelerometerData *accelerometerData, NSError *error){
         double xAccel = accelerometerData.acceleration.x;
         double yAccel = accelerometerData.acceleration.y;
-        NSLog(@"handled accelerometer data: %f, %f", xAccel, yAccel);
         self.ball.xVelocity += xAccel;
         self.ball.yVelocity += (-1 * yAccel);
         [self moveBall];
         [self checkForWin];
-        [self checkForCollision];
     };
     [self.motionManager startAccelerometerUpdatesToQueue:operationQueue withHandler:handler];
 }
@@ -69,12 +65,12 @@ static const double kJDVFriction = 0.97;
     [self applyFrictionToBall];
     double movementSteps = [self.ball greatestDirectionalVelocity];
     while (movementSteps > 0) {
-        double fractionOfStep = fmin(movementSteps, 1);
-        [self.ball stepInDirectionOfGreaterVelocityByFractionalStep:fractionOfStep];
-        // check for collision in direction of greater velocity
-        [self.ball stepInDirectionOfLesserVelocityByFractionalStep:fractionOfStep];
-        // check for collision in direction of lesser velocity
-        movementSteps -= fractionOfStep;
+        double step = fmin(movementSteps, 1);
+        [self stepBallInDirectionOfGreaterVelocityByStep:step];
+        [self checkForCollisionInDirectionOfGreaterVelocity];
+        [self stepBallInDirectionOfLesserVelocityByStep:step];
+        [self checkForCollisionInDirectionOfLesserVelocity];
+        movementSteps -= step;
     }
 }
 
@@ -82,6 +78,92 @@ static const double kJDVFriction = 0.97;
 {
     self.ball.xVelocity *= kJDVFriction;
     self.ball.yVelocity *= kJDVFriction;
+}
+
+- (void)stepBallInDirectionOfGreaterVelocityByStep:(double)step
+{
+    if (fabs(self.ball.xVelocity) > fabs(self.ball.yVelocity)) {
+        if (self.ball.xVelocity < 0) {
+            step *= -1;
+        }
+        self.ball.center = CGPointMake(self.ball.center.x + step, self.ball.center.y);
+    } else {
+        if (self.ball.yVelocity < 0) {
+            step *= -1;
+        }
+        self.ball.center = CGPointMake(self.ball.center.x, self.ball.center.y + step);
+    }
+}
+
+- (void)stepBallInDirectionOfLesserVelocityByStep:(double)step
+{
+    if (fabs(self.ball.xVelocity) <= fabs(self.ball.yVelocity)) {
+        if (self.ball.xVelocity < 0) {
+            step *= -1;
+        }
+        double xDelta = (fabs(self.ball.xVelocity / self.ball.yVelocity) * step);
+        self.ball.center = CGPointMake(self.ball.center.x + xDelta, self.ball.center.y);
+    } else {
+        if (self.ball.yVelocity < 0) {
+            step *= -1;
+        }
+        double yDelta = (fabs(self.ball.yVelocity / self.ball.xVelocity) * step);
+        self.ball.center = CGPointMake(self.ball.center.x, self.ball.center.y + yDelta);
+    }
+}
+
+- (void)checkForCollisionInDirectionOfGreaterVelocity
+{
+    for (UIView *wall in self.walls) {
+        if (CGRectIntersectsRect(self.ball.frame, wall.frame)) {
+            if (fabs(self.ball.xVelocity) > fabs(self.ball.yVelocity)) {
+                double centerX;
+                if (self.ball.xVelocity > 0) {
+                    centerX = wall.frame.origin.x - (self.ball.frame.size.width / 2);
+                } else {
+                    centerX = (wall.frame.origin.x + wall.frame.size.width) + (self.ball.frame.size.width / 2);
+                }
+                self.ball.center = CGPointMake(centerX, self.ball.center.y);
+                self.ball.xVelocity *= -1;
+            } else {
+                double centerY;
+                if (self.ball.yVelocity > 0) {
+                    centerY = wall.frame.origin.y - (self.ball.frame.size.height / 2);
+                } else {
+                    centerY = (wall.frame.origin.y + wall.frame.size.height) + (self.ball.frame.size.height / 2);
+                }
+                self.ball.center = CGPointMake(self.ball.center.x, centerY);
+                self.ball.yVelocity *= -1;
+            }
+        }
+    }
+}
+
+- (void)checkForCollisionInDirectionOfLesserVelocity
+{
+    for (UIView *wall in self.walls) {
+        if (CGRectIntersectsRect(self.ball.frame, wall.frame)) {
+            if (fabs(self.ball.xVelocity) <= fabs(self.ball.yVelocity)) {
+                double centerX;
+                if (self.ball.xVelocity > 0) {
+                    centerX = wall.frame.origin.x - (self.ball.frame.size.width / 2);
+                } else {
+                    centerX = (wall.frame.origin.x + wall.frame.size.width) + (self.ball.frame.size.width / 2);
+                }
+                self.ball.center = CGPointMake(centerX, self.ball.center.y);
+                self.ball.xVelocity *= -1;
+            } else {
+                double centerY;
+                if (self.ball.yVelocity > 0) {
+                    centerY = wall.frame.origin.y - (self.ball.frame.size.height / 2);
+                } else {
+                    centerY = (wall.frame.origin.y + wall.frame.size.height) + (self.ball.frame.size.height / 2);
+                }
+                self.ball.center = CGPointMake(self.ball.center.x, centerY);
+                self.ball.yVelocity *= -1;
+            }
+        }
+    }
 }
 
 - (void)checkForWin
@@ -94,18 +176,6 @@ static const double kJDVFriction = 0.97;
 //                          cancelButtonTitle:nil
 //                          otherButtonTitles:nil] show];
 //    }
-}
-
-- (void)checkForCollision
-{
-    for (UIView *edge in self.view.subviews) {
-        if ([edge isKindOfClass:[JDVBall class]] || edge.tag == 3) {
-            continue;
-        }
-        if (CGRectIntersectsRect(self.ball.frame, edge.frame)) {
-            [self.ball processCollisionWithEdge:edge];
-        }
-    }
 }
 
 @end
