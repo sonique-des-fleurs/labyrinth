@@ -10,6 +10,8 @@
 #import <CoreMotion/CoreMotion.h>
 #import "JDVBall.h"
 
+static const double kJDVFriction = 0.97;
+
 @interface JDVViewController ()
 
 @property (strong, nonatomic) NSArray *walls;
@@ -55,11 +57,31 @@
         NSLog(@"handled accelerometer data: %f, %f", xAccel, yAccel);
         self.ball.xVelocity += xAccel;
         self.ball.yVelocity += (-1 * yAccel);
-        [self.ball updatePosition];
+        [self moveBall];
         [self checkForWin];
         [self checkForCollision];
     };
     [self.motionManager startAccelerometerUpdatesToQueue:operationQueue withHandler:handler];
+}
+
+- (void)moveBall
+{
+    [self applyFrictionToBall];
+    double movementSteps = [self.ball greatestDirectionalVelocity];
+    while (movementSteps > 0) {
+        double fractionOfStep = fmin(movementSteps, 1);
+        [self.ball stepInDirectionOfGreaterVelocityByFractionalStep:fractionOfStep];
+        // check for collision in direction of greater velocity
+        [self.ball stepInDirectionOfLesserVelocityByFractionalStep:fractionOfStep];
+        // check for collision in direction of lesser velocity
+        movementSteps -= fractionOfStep;
+    }
+}
+
+- (void)applyFrictionToBall
+{
+    self.ball.xVelocity *= kJDVFriction;
+    self.ball.yVelocity *= kJDVFriction;
 }
 
 - (void)checkForWin

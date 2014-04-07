@@ -39,11 +39,45 @@ static double const kJDVMaxVelocity = 20;
     _yVelocity = fmin(_yVelocity, kJDVMaxVelocity);
 }
 
-- (void)updatePosition
+- (double)greatestDirectionalVelocity
 {
-    double centerX = self.center.x + self.xVelocity;
-    double centerY = self.center.y + self.yVelocity;
-    self.center = CGPointMake(centerX, centerY);
+    if (fabs(self.xVelocity) > fabs(self.yVelocity)) {
+        return fabs(self.xVelocity);
+    } else {
+        return fabs(self.yVelocity);
+    }
+}
+
+- (void)stepInDirectionOfGreaterVelocityByFractionalStep:(double)fractionOfStep
+{
+    if (fabs(self.xVelocity) > fabs(self.yVelocity)) {
+        if (self.xVelocity < 0) {
+            fractionOfStep *= -1;
+        }
+        self.center = CGPointMake(self.center.x + fractionOfStep, self.center.y);
+    } else {
+        if (self.yVelocity < 0) {
+            fractionOfStep *= -1;
+        }
+        self.center = CGPointMake(self.center.x, self.center.y + fractionOfStep);
+    }
+}
+
+- (void)stepInDirectionOfLesserVelocityByFractionalStep:(double)fractionOfStep
+{
+    if (fabs(self.xVelocity) <= fabs(self.yVelocity)) {
+        if (self.xVelocity < 0) {
+            fractionOfStep *= -1;
+        }
+        double xDelta = (fabs(self.xVelocity / self.yVelocity) * fractionOfStep);
+        self.center = CGPointMake(self.center.x + xDelta, self.center.y);
+    } else {
+        if (self.yVelocity < 0) {
+            fractionOfStep *= -1;
+        }
+        double yDelta = (fabs(self.yVelocity / self.xVelocity) * fractionOfStep);
+        self.center = CGPointMake(self.center.x, self.center.y + yDelta);
+    }
 }
 
 - (void)processCollisionWithEdge:(UIView *)edge

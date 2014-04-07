@@ -13,7 +13,10 @@
 @property (assign, nonatomic) double xVelocity;
 @property (assign, nonatomic) double yVelocity;
 
-- (void)updatePosition;
+- (double)greatestDirectionalVelocity;
+- (void)stepInDirectionOfGreaterVelocityByFractionalStep:(double)fractionOfStep;
+- (void)stepInDirectionOfLesserVelocityByFractionalStep:(double)fractionOfStep;
+
 - (void)processCollisionWithEdge:(UIView *)edge;
 
 @end
